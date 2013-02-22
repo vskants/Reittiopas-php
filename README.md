@@ -12,7 +12,7 @@ Reittiopas API requires authentication.
 <h3>Example:</h3>
 
 <code>
-include_once 'classes/Reittiopas.php';
+include_once 'classes/Reittiopas.php';<br/>
 include_once 'classes/StopsInArea.php';
 
 
