@@ -12,12 +12,12 @@ Reittiopas API requires authentication.
 <h3>Example:</h3>
 
 <pre><code>
-include_once 'classes/Reittiopas.php';<br/>
+include_once 'classes/Reittiopas.php';
 include_once 'classes/StopsInArea.php';<br/>
 $reittiopas = new Reittiopas("user","password","request coordinate system","response coordinate system","json/xml");<br/>
 $stops = new StopsInArea("24.928265,60.187377","3","1500");<br/>
 
-$results = $reittiopas->getCycleRoute($stops);
+$results = $reittiopas->getStopsInArea($stops);
 
 </code>
 </pre>
