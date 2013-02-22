@@ -11,7 +11,7 @@ class CycleRoute
 	function __construct($from, $to, $via = null, $profile = null) {
 		$this->_from = $from;
 		$this->_to = $to;
-		$this->_via = $via;
+		$this->_viaPoints = $via;
 		$this->_profile = $profile;
 	}
 	

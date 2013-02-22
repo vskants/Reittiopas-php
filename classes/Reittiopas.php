@@ -27,6 +27,11 @@ class Reittiopas
 		return $this->httpRequest($url);
 	}
 	
+	public function getStopInformation(StopInformation $stopInformation) {
+		$url = $stopInformation->getUriStopInformation();
+		return $this->httpRequest($url);
+	}
+	
 	private function buildCommonUrl() {
 		return sprintf("&user=%s&pass=%s&epsg_in=%s&epsg_out=%s&format=%s",
 		$this->_user, $this->_pass, $this->_epsgIn, $this->_epsgOut, $this->_format);
