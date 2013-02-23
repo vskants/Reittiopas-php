@@ -28,7 +28,7 @@ class Route
 	
 	public function getUriRoute() {
 		return sprintf(self::$_uri, $this->_from, $this->_to, $this->_via, $this->_date, $this->_time, $this->_timeType,
-				$this->_zone, $this->_transportTypes, $this->_show);
+				$this->_zone, implode("|",$this->_transportTypes), $this->_show);
 	}
 	
 }
