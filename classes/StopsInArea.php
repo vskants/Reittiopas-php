@@ -2,7 +2,7 @@
 
 class StopsInArea 
 {
-	private $_uri = "center_coordinate=%s&limit=%s&diameter=%s&request=stops_area";
+	private static $_uri = "center_coordinate=%s&limit=%s&diameter=%s&request=stops_area";
 	private $_centerCoordinate;
 	private $_limit;
 	private $_diameter;
@@ -14,6 +14,6 @@ class StopsInArea
 	}
 	
 	public function getUriStopsInArea() {
-		return sprintf($this->_uri,$this->_centerCoordinate,$this->_limit, $this->_diameter);
+		return sprintf(self::$_uri,$this->_centerCoordinate,$this->_limit, $this->_diameter);
 	}
 }

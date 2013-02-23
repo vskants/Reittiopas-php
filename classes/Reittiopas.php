@@ -1,4 +1,8 @@
 <?php
+/*
+ * Requirements: API requires authentication. 
+ * 
+ * */
 
 class Reittiopas
 {
@@ -29,6 +33,11 @@ class Reittiopas
 	
 	public function getStopInformation(StopInformation $stopInformation) {
 		$url = $stopInformation->getUriStopInformation();
+		return $this->httpRequest($url);
+	}
+	
+	public function getRoute(Route $route) {
+		$url = $route->getUriRoute();
 		return $this->httpRequest($url);
 	}
 	

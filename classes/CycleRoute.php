@@ -2,7 +2,7 @@
 
 class CycleRoute
 {
-	private $_uri = "request=cycling&from=%s&to=%s&via=%s&profile=%s";
+	private static $_uri = "request=cycling&from=%s&to=%s&via=%s&profile=%s";
 	private $_from;
 	private $_to;
 	private $_viaPoints = array();
@@ -16,7 +16,7 @@ class CycleRoute
 	}
 	
 	public function getUriCycleRoute() {
-		return sprintf($this->_uri, $this->_from, $this->_to, implode("|",$this->_viaPoints), $this->_profile);
+		return sprintf(self::$_uri, $this->_from, $this->_to, implode("|",$this->_viaPoints), $this->_profile);
 	}
 	
 	public function addViaPoint($xyCoordinate) {

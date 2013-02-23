@@ -2,12 +2,12 @@
 
 class StopInformation
 {
-	private $_uri = "code=%s&date=%s&time=%s&time_limit=%s&dep_limit=%s&request=stop";
+	private static $_uri = "code=%s&date=%s&time=%s&time_limit=%s&dep_limit=%s&request=stop";
 	private $_code;
-	private $_date;
-	private $_time;
-	private $_timeLimit;
-	private $_depLimit;
+	private $_date; //Optional, default current date, YYYYMMDD.
+	private $_time; //Optional, default current time, HHMM.
+	private $_timeLimit; //Optional, default 120, max 360 minutes.
+	private $_depLimit; //Optional, default 10, range 1-20.
 	
 	function __construct($code, $date = null, $time = null, $timeLimit = null, $depLimit = null) {
 		$this->_code = $code;
@@ -18,6 +18,6 @@ class StopInformation
 	}
 	
 	public function getUriStopInformation() {
-		return sprintf($this->_uri, $this->_code, $this->_date, $this->_time, $this->_timeLimit, $this->_depLimit);
+		return sprintf(self::$_uri, $this->_code, $this->_date, $this->_time, $this->_timeLimit, $this->_depLimit);
 	}
 }
