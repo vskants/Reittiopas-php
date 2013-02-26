@@ -8,6 +8,9 @@ class StopsInArea
 	private $_diameter;
 	
 	function __construct($centerCoordinate, $limit = null, $diameter = null) {
+		if (empty($centerCoordinate) || is_string($centerCoordinate) == false) 
+			throw new InvalidArgumentException("Centercoordinate x,y required.");	
+		
 		$this->_centerCoordinate = $centerCoordinate;
 		$this->_limit = $limit;
 		$this->_diameter = $diameter;
