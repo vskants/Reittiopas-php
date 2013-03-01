@@ -9,7 +9,7 @@ class CycleRoute
 	private $_profile;
 	
 	function __construct($from, $to, $via = null, $profile = null) {
-		if ((empty($from) || ! is_string($from)) || (empty($to) || ! is_string($to)))
+		if (empty($from) || ! is_string($from) || empty($to) || ! is_string($to))
 			throw new InvalidArgumentException("Params from,to required.");
 		
 		$this->_from = $from;
