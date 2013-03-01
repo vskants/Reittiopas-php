@@ -10,6 +10,9 @@ class StopInformation
 	private $_depLimit; //Optional, default 10, range 1-20.
 	
 	function __construct($code, $date = null, $time = null, $timeLimit = null, $depLimit = null) {
+		if(empty($code) || ! is_string($code))
+			throw new InvalidArgumentException("String code required.");
+		
 		$this->_code = $code;
 		$this->_date = $date;
 		$this->_time = $time;

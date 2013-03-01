@@ -16,6 +16,9 @@ class Route
 	
 	function __construct($from, $to, $via = null, $date = null, $time = null, $timeType = null, $zone = null,
 			$transportTypes = null, $show = null) {
+		if ((empty($from) || ! is_string($from)) || (empty($to) || ! is_string($to)))
+			throw new InvalidArgumentException("Params from,to required.");
+		
 		$this->_from = $from;
 		$this->_to = $to;
 		$this->_via = $via;
