@@ -3,7 +3,7 @@
 class StopInformation
 {
 	private static $_uri = "code=%s&date=%s&time=%s&time_limit=%s&dep_limit=%s&request=stop";
-	private $_code;
+	private $_code; //Line code
 	private $_date; //Optional, default current date, YYYYMMDD.
 	private $_time; //Optional, default current time, HHMM.
 	private $_timeLimit; //Optional, default 120, max 360 minutes.

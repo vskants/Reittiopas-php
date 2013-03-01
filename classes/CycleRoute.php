@@ -3,10 +3,10 @@
 class CycleRoute
 {
 	private static $_uri = "request=cycling&from=%s&to=%s&via=%s&profile=%s";
-	private $_from;
-	private $_to;
-	private $_viaPoints = array();
-	private $_profile;
+	private $_from; //Coordinates separated by comma (e.g. <"x,y">)
+	private $_to; //Coordinates separated by comma (e.g. <"x,y">)
+	private $_viaPoints = array(); //Coordinates separated by comma (e.g. <"x,y">)
+	private $_profile; //String
 	
 	function __construct($from, $to, $via = null, $profile = null) {
 		if (empty($from) || ! is_string($from) || empty($to) || ! is_string($to))

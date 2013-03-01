@@ -4,9 +4,9 @@ class Route
 {
 	private static $_uri = "request=route&from=%s&to=%s&via=%s&date=%s&time=%s&timetype=%s&zone=%s
 			&transport_types=%s&show=%s";
-	private $_from;
-	private $_to;
-	private $_via; 
+	private $_from; //Coordinates separated by comma (e.g. <"x,y">)
+	private $_to; //Coordinates separated by comma (e.g. <"x,y">)
+	private $_via; //Coordinates separated by comma (e.g. <"x,y">)
 	private $_date; //YYYYMMDD
 	private $_time; //HHMM
 	private $_timeType; //Time of the request is for "arrival" or "departure". Optional, default "departure".
