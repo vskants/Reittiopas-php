@@ -2,12 +2,57 @@
 
 class StopInformation
 {
+	/**
+	 * Module base-url
+	 * 
+	 * @var string
+	 */
 	private static $_uri = "code=%s&date=%s&time=%s&time_limit=%s&dep_limit=%s&request=stop";
-	private $_code; //Line code
-	private $_date; //Optional, default current date, YYYYMMDD.
-	private $_time; //Optional, default current time, HHMM.
-	private $_timeLimit; //Optional, default 120, max 360 minutes.
-	private $_depLimit; //Optional, default 10, range 1-20.
+	
+	/**
+	 * Line code
+	 * 
+	 * @var string
+	 */
+	private $_code;	
+	
+	/**
+	 * Optional, default current date, YYYYMMDD.
+	 * 
+	 * @var string
+	 */
+	private $_date;
+	
+	/**
+	 * Optional, default current time, HHMM.
+	 * 
+	 * @var string
+	 */
+	private $_time;
+	
+	/**
+	 * Optional, default 120, max 360 minutes.
+	 * 
+	 * @var string
+	 */
+	private $_timeLimit;
+	
+	/**
+	 * Optional, default 10, range 1-20.
+	 * 
+	 * @var string
+	 */
+	private $_depLimit;
+	
+	/**
+	 * Constructor, creates StopsInformation-object.
+	 * @param string $code
+	 * @param string $date
+	 * @param string $time
+	 * @param string $timeLimit
+	 * @param string $depLimit
+	 * @throws InvalidArgumentException
+	 */
 	
 	function __construct($code, $date = null, $time = null, $timeLimit = null, $depLimit = null) {
 		if(empty($code) || ! is_string($code))
@@ -20,6 +65,11 @@ class StopInformation
 		$this->_depLimit = $depLimit;
 	}
 	
+	/**
+	 * Format url
+	 * 
+	 * @return string
+	 */
 	public function getUriStopInformation() {
 		return sprintf(self::$_uri, $this->_code, $this->_date, $this->_time, $this->_timeLimit, $this->_depLimit);
 	}
