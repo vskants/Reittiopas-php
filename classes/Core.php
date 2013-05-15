@@ -135,7 +135,6 @@ class Reittiopas
 	 */
 	private function httpRequest($url) {
 		$url = self::$_baseUrl.$url.$this->buildCommonUrl();
-		echo $url."<br/>";
 		$response = file_get_contents($url);
 		$response = $this->handleResponse($response);
 		return $response;
