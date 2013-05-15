@@ -148,8 +148,8 @@ class Reittiopas
 	 * @return json/xml
 	 */
 	private function handleResponse($response) {
-		if (json_decode($response) != null) {
-			return $response;
+		if ($json_response = json_decode($response)) {
+			return $json_response;
 		}
 		else {
 			return simplexml_load_string($response);
