@@ -10,7 +10,7 @@ class LineInformation
 	
 	/**
 	 * Line code
-	 * @var string
+	 * @var string, multiple lines separated by pipe ("|")
 	 */
 	private $_query;
 	
@@ -21,16 +21,16 @@ class LineInformation
 	private $_type;
 	
 	/**
-	 * Constructor, creates StopsInformation-object.
-	 * @param string $code
+	 * Constructor, creates LineInformation-object.
+	 * @param string $query
 	 * @param string $type
 	 * @throws InvalidArgumentException
 	 */
-	function __construct($code, $type = null) {
-		if(empty($code) || ! is_string($code))
-			throw new InvalidArgumentException("String code required.");
+	function __construct($query, $type = null) {
+		if(empty($query) || ! is_string($query))
+			throw new InvalidArgumentException("Query required.");
 		
-		$this->_query = $code;
+		$this->_query = $query;
 		$this->_type = $type;
 	}
 	
