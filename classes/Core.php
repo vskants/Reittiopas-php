@@ -107,7 +107,18 @@ class Reittiopas
 		$url = $route->getUriRoute();
 		return $this->httpRequest($url);
 	}
-	
+
+	/**
+	 * Get line information.
+	 *
+	 * @param Lines $lines
+	 * @return void
+	 */
+	public function getLineInformation(LineInformation $lines) {
+		$url = $lines->getUriLineInformation();
+		return $this->httpRequest($url);
+	}
+
 	/**
 	 * Format url required parameters.
 	 * @return string
