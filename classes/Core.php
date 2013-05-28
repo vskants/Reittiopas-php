@@ -47,7 +47,7 @@ class Reittiopas
 	 * @var string
 	 */
 	private $_format;
-	
+
 	/**
 	 * Constructor, creates Reittiopas-object.
 	 * @param string $user
@@ -55,7 +55,7 @@ class Reittiopas
 	 * @param string $epsgIn
 	 * @param string $epsgOut
 	 * @param string $format
-	 */	
+	 */
 	function __construct($user, $pass, $epsgIn = null,$epsgOut = null, $format = null) {
 		$this->_user = $user;
 		$this->_pass = $pass;
@@ -140,6 +140,7 @@ class Reittiopas
       $ch = curl_init();
       curl_setopt($ch, CURLOPT_URL, $url);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+      curl_setopt($ch, CURLOPT_TIMEOUT, 5);
       $response = curl_exec($ch);
     }
     else {
