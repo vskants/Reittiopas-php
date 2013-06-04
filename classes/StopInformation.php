@@ -7,7 +7,7 @@ class StopInformation
 	 * 
 	 * @var string
 	 */
-	private static $_uri = "code=%s&date=%s&time=%s&time_limit=%s&dep_limit=%s&request=stop";
+	private static $_uri = "code=%s&date=%s&time=%s&time_limit=%s&dep_limit=%s&p=%s&request=stop";
 	
 	/**
 	 * Line code
@@ -43,7 +43,14 @@ class StopInformation
 	 * @var string
 	 */
 	private $_depLimit;
-	
+
+	/**
+	 * Optional, limit fields in response. Defaults to all fields.
+	 *
+	 * @var string
+	 */
+	private $_p;
+
 	/**
 	 * Constructor, creates StopsInformation-object.
 	 * @param string $code
@@ -51,10 +58,11 @@ class StopInformation
 	 * @param string $time
 	 * @param string $timeLimit
 	 * @param string $depLimit
+	 * @param string $p
 	 * @throws InvalidArgumentException
 	 */
 	
-	function __construct($code, $date = null, $time = null, $timeLimit = null, $depLimit = null) {
+	function __construct($code, $date = null, $time = null, $timeLimit = null, $depLimit = null, $p = null) {
 		if(empty($code) || ! is_string($code))
 			throw new InvalidArgumentException("String code required.");
 		
@@ -63,6 +71,7 @@ class StopInformation
 		$this->_time = $time;
 		$this->_timeLimit = $timeLimit;
 		$this->_depLimit = $depLimit;
+		$this->_p = $p;
 	}
 	
 	/**
@@ -71,6 +80,6 @@ class StopInformation
 	 * @return string
 	 */
 	public function getUriStopInformation() {
-		return sprintf(self::$_uri, $this->_code, $this->_date, $this->_time, $this->_timeLimit, $this->_depLimit);
+		return sprintf(self::$_uri, $this->_code, $this->_date, $this->_time, $this->_timeLimit, $this->_depLimit, $this->_p);
 	}
 }

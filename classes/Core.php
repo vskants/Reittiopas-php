@@ -47,7 +47,7 @@ class Reittiopas
 	 * @var string
 	 */
 	private $_format;
-	
+
 	/**
 	 * Constructor, creates Reittiopas-object.
 	 * @param string $user
@@ -55,7 +55,7 @@ class Reittiopas
 	 * @param string $epsgIn
 	 * @param string $epsgOut
 	 * @param string $format
-	 */	
+	 */
 	function __construct($user, $pass, $epsgIn = null,$epsgOut = null, $format = null) {
 		$this->_user = $user;
 		$this->_pass = $pass;
@@ -107,7 +107,18 @@ class Reittiopas
 		$url = $route->getUriRoute();
 		return $this->httpRequest($url);
 	}
-	
+
+	/**
+	 * Get line information.
+	 *
+	 * @param Lines $lines
+	 * @return void
+	 */
+	public function getLineInformation(LineInformation $lines) {
+		$url = $lines->getUriLineInformation();
+		return $this->httpRequest($url);
+	}
+
 	/**
 	 * Format url required parameters.
 	 * @return string
@@ -124,8 +135,17 @@ class Reittiopas
 	 */
 	private function httpRequest($url) {
 		$url = self::$_baseUrl.$url.$this->buildCommonUrl();
-		echo $url."<br/>";
-		$response = file_get_contents($url);
+    // Use cURL library if available
+    if (function_exists('curl_version')) {
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL, $url);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+      curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+      $response = curl_exec($ch);
+    }
+    else {
+      $response = file_get_contents($url);
+    }
 		$response = $this->handleResponse($response);
 		return $response;
 	}
@@ -137,12 +157,7 @@ class Reittiopas
 	 * @return json/xml
 	 */
 	private function handleResponse($response) {
-		if (json_decode($response) != null) {
-			return $response;
-		}
-		else {
-			return simplexml_load_string($response);
-		}
+    return ($this->_format == 'json') ? json_decode($response) : simplexml_load_string($response);
 	}
 	
 }
