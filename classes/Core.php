@@ -1,7 +1,7 @@
 <?php
 /*
  * Requirements: API requires authentication. 
- * 
+ *++ 
  * */
 
 class Reittiopas
