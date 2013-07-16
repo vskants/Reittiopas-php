@@ -9,7 +9,7 @@ class Reittiopas
 	/**
 	 * API base-url
 	 * 
-	 * @var string
+	 * @var stringb
 	 */	
 	private static $_baseUrl = 'http://api.reittiopas.fi/hsl/prod/?';
 	
