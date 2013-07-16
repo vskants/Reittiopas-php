@@ -3,6 +3,9 @@
 class LineInformation
 {
 	/**
+	 * 
+	 * 
+	 * 
 	 * Module base-url
 	 * @var string
 	 */

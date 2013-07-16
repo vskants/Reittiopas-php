@@ -5,6 +5,10 @@ class CycleRoute
 	/**
 	 * Module base-url
 	 * 
+	 * 
+	 * 
+	 * 
+	 * 
 	 * @var string
 	 */
 	private static $_uri = "request=cycling&from=%s&to=%s&via=%s&profile=%s";
