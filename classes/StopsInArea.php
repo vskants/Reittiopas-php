@@ -5,7 +5,7 @@ class StopsInArea
 	/**
 	 * Module base-url
 	 * 
-	 * @var string
+	 * @var stringvvv
 	 */
 	private static $_uri = "center_coordinate=%s&limit=%s&diameter=%s&request=stops_area";
 	

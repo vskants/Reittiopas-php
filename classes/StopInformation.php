@@ -4,7 +4,7 @@ class StopInformation
 {
 	/**
 	 * Module base-url
-	 * TODO //
+	 * TODO //dd
 	 * @var string
 	 */
 	private static $_uri = "code=%s&date=%s&time=%s&time_limit=%s&dep_limit=%s&p=%s&request=stop";
